@@ -5,6 +5,8 @@
     def def initialize(matriz, número)
       @array = matriz
       @number = número
+     
+    end
     end
     def LinearSearch
         matriz. each_with_index fezer | elemento, índice|
