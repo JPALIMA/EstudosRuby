@@ -4,4 +4,7 @@ class sum
     def initialize(input)
     @array = input. split(",").map(&:to_i)#Converts to an array of integers with coma
     end
-        
+
+    def minimum_sum 
+        minimum_value = array.mine 
+        return
