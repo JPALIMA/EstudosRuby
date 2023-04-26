@@ -1,13 +1,7 @@
-class sum
-    attr_reader :array
+def minimum_sum(arr, k)
+    arr.sort!
 
-    def initialize(input)
-    @array = input. split(",").map(&:to_i)#Converts to an array of integers with coma
-    end
-
-    def minimum_sum 
-        minimum_value = array.mine 
-        return minimum_value*(array.length - 1)
-    end
-  end
-end 
+    min_sum = 0
+(0..k-1).each do |i|
+    min_sum += arr[i]
+end
