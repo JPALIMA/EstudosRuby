@@ -7,4 +7,7 @@ class sum
 
     def minimum_sum 
         minimum_value = array.mine 
-        return
+        return minimum_value*(array.length - 1)
+    end
+  end
+end 
