@@ -1,16 +1,11 @@
-def minimum_sum(arr, k)
-    arr.sort!
+def couting_sort (a =[9,8,7,6], min=0,max=10)
+    if min>max
+        return "invalid range"
+    end
 
-    min_sum = 0
-(0..k-1).each do |i|
-    min_sum += arr[i]
-end
+    n=max-min+1
+    count=array.new(n,0)
+    len=a.length
+    output=Array.new(len)
 
-return min_sum
-end
-
-arr = [3, 5, 2, 7, 9, 8]
-k = 3
-puts "Array: #{arr}"
-puts "k: #{k}"
-puts "Minimum Sum: #{minimum_sum(arr, k)}"
+    
