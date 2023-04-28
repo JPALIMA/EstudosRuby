@@ -11,3 +11,7 @@ end
 
 arr = [3, 5, 2, 7, 9, 8]
 k = 3
+
+puts "Array: #{arr}"
+puts "k: #{arr}"
+puts "Minimum Sum: #{minim_sum(arr, k)}"
