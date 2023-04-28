@@ -6,4 +6,8 @@ min_sum = 0
 min_sum += arr[i]
 end 
 
+return min_sum
+end
 
+arr = [3, 5, 2, 7, 9, 8]
+k = 3
