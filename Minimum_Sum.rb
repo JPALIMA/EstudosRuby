@@ -1,33 +1,21 @@
-def counting_sort (a=[9,8,7,6],min=0,max=10)
-    if min>max
-        return "invalid range"
-    end 
+def minimum_sum(arr, k)
+  arr.sort!
 
-    n=max=min+1
-    count=Array.new(n,0)
-    len=a.length 
-    output=Array.new(len)
+  #Inicializa a soma mínima
+  min_sum = 0
 
-    for i in 0...(len)
-        count[a[i]-min]+=1
-    end
+  #Calcular a some mínima
+  (0..k-1).each do |i|
+    min_sum +=arr[i]
+  end
 
-    for in 1...n
-        cout[i]+=count[i-1]
+ #Retorna a soma mínima
+ return min_sum 
 end
 
-    for i in 1...n
-        count[i]+=count[i-1]
-    end
-
-    for i in 0...len
-        output[count[a[i]-min]-1]=a[i]
-        count[a[i]-min]-=1
-    end
-
-    for i in 0...len
-        a[i]=output[i]
-    end
-    
-    return a 
-end
+#Exemplo de uso
+arr = [3,5,2,7,9,8]
+k = 3
+puts "Array: #{arr}"
+pus "k: #{k}"
+puts "Minimum Sum: #{minimum_sum(arr, k)}"
