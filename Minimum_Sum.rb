@@ -1,29 +1,15 @@
-def counting_sort (a=[9, 8, 7, 6], min=0, max=10)
-    if min>max
-        return "invalid range"
-    end
+def minumum_sum(arr, k)
+    arr.sort!
 
-    n=max-min+1
-    count=Array.new(n,0)
-    len=a.length 
-    output=Array.nem(len)
-
-    for i in 0...(len)
-            count[a[i]-min]+=1
-    end
-
-    for i in 1...n
-        count[i]+=count[i-1]
-    end
-
-    for i in 0...len
-        output[count[a[i]-min]-1]=a[i]
-        count[a[i]-min]-=1
-    end
-
-    for i in 0...len
-        a[i]=output[i]
-    end
-
-    return a 
+    min_sum = 0
+    min-sum += arr[i]
 end
+
+return min_sum
+end
+
+arr = [3, 5, 2, 7, 9, 8]
+k = 3
+puts "Array: #{arr}"
+puts "k: #{k}"
+puts "Minimum Sum: #{minimum_sum(arr, k)}"
