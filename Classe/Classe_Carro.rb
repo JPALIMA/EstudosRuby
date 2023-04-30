@@ -1,20 +1,16 @@
-class Carro 
-
-    attr_accessor :marca, :modelo
-
-    def velocidade_maxima
-        250
+class Automovel 
+    def acelera 
+        #Aciona injeção eletrônica
+        #injeta combustível e etc...
+        puts "acelerando automóvel..."
     end
-
-    def descricao
-        "Marca: #{@marca} e Modelo: #{@modelo}"
-    end
-
 end
 
-carro = Carro.new
-carro.marca = "Ford"
-carro.modelo = "forcus"
-puts "Marca: " + carro.marca
-puts "Modelo: " + carro.modelo
-puts "Descricao: " + carro.descricao
+class Carro < Automovel
+    def acelera
+        # verica freios e outras coisas
+        #Que o carro especificamente necessita
+        puts "Verificando equipamento..."
+        super
+    end
+end
