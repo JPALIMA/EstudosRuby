@@ -1,4 +1,10 @@
 class Automovel 
+    
+    def self.tipo_cambio
+        puts "Manual"
+    end
+    
+    
     def acelera 
         #Aciona injeção eletrônica
         #injeta combustível e etc...
