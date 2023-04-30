@@ -13,4 +13,8 @@ class Carro
 end
 
 carro = Carro.new
-carro.mar
+carro.marca = "Ford"
+carro.modelo = "forcus"
+puts "Marca: " + carro.marca
+puts "Modelo: " + carro.modelo
+puts "Descricao: " + carro.descricao
