@@ -30,7 +30,7 @@ case operador
 when "+"
     puts Calculadora.new.sumar(val1,val2)
 when "-"
-    puts Calculadora.new.restar(val1, val2)
+    puts Calculadora.new.restar(val1,val2)
 when "*"
     puts Calculadora.new.multiplicar(val1,val2)
 when "/"
