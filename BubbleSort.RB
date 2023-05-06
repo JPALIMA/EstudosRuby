@@ -1,12 +1,12 @@
-def bubble_sort(list)
-    return list if list.size <= 1 # already sorted
-    swapped = true
-    while swapped do
+def bubble_sort(array)
+    n = array.length
+    loop do
         swapped = false
-        0.upto(list.size-2) do |i|
-            if list[i] > list[i+1]
-                list[i], list[i+1] = list[i+1], list[i] #swap values
+
+        (n-1).times do |i|
+            if array[i] > array[i+1]
+                array[i], array[i+1] = array[i+1], array[i]
                 swapped = true
             end
         end
-    end
+        
