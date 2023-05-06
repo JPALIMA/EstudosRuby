@@ -1,6 +1,6 @@
 def bubble_sort(array)
-    n = array.length
-    loop do
+    n = array.length 
+    loop do 
         swapped = false
 
         (n-1).times do |i|
@@ -9,4 +9,12 @@ def bubble_sort(array)
                 swapped = true
             end
         end
-        
+
+        break if not swapped
+    end
+
+    array
+end
+
+array = [3,5,2,1,4]
+puts bubble_sort(array)
