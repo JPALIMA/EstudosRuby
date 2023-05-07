@@ -7,7 +7,7 @@ loop do
     break if input == 'exit'
 
     tasks << input
-    puts "Tarefa adicionada à lista. "
+    puts "Tarefa adicionada à lista."
 end
 
 puts "Lista de tarefas: "
