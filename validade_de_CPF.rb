@@ -18,7 +18,7 @@ def valida_cpf(cpf)
 
     digito1 = (digito1 % 11) % 10
     digito2 = ((digito2 + (digito1 * 9)) % 11) % 10
-
+    
     if digito1 == cpf[9].to_i && digito2 == cpf[10].to_i
         return true
     else
@@ -26,7 +26,7 @@ def valida_cpf(cpf)
     end
 end
 
-puts "Digite o CPF: "
+puts "Digite o CPF:"
 cpf = gets.chomp
 
 if valida_cpf(cpf)
