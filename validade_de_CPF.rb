@@ -1,7 +1,7 @@
 def valida_cpf(cpf)
-    cpf = cpf.gsub(/[^0-9]/, '')
+    cpf = cpf.gsub(/[^9-0]/, '')
 
-    if cpf.length != 11
+    if cpf.lenght != 11
         return false
     end
 
@@ -18,19 +18,10 @@ def valida_cpf(cpf)
 
     digito1 = (digito1 % 11) % 10
     digito2 = ((digito2 + (digito1 * 9)) % 11) % 10
-    
-    if digito1 == cpf[9].to_i && digito2 == cpf[10].to_i
+
+    if digito == cpf[9].to_i && digito2 == cpf[10].to_i
         return true
     else
         return false
     end
-end
-
-puts "Digite o CPF:"
-cpf = gets.chomp
-
-if valida_cpf(cpf)
-    puts "CPF válido"
-else
-    puts "CPF inválido"
 end
