@@ -9,11 +9,11 @@ loop do
     palpite = gets.chomp.to_i
 
     if palpite == numero
-        puts "Parebéns! Você acertou em #{tentativas} tentativas."
-        break
+        puts "Parabéns! Você acertou em #{tentativas} tentativas."
+        break 
     elsif palpite < numero
-        puts "0 número é maior que #{palpite}. Tente novamente."
+        puts "O número é maior que #{palpite}. Tente novamente."
     else
-        puts "O numero é menor que #{palpite}. Tente novamente."
+        puts "O número é menor que #{palpite}. Tenta novamente."
     end
 end
