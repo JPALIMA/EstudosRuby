@@ -1,13 +1,10 @@
-puts "Digite o primeiro número: "
-num1 = gets.chomp.to_f
+puts "Digite o primeiro número:"
+num1 = gets.chomp.to_f 
 
 puts "Digite o segundo número: "
-num2 = gets.chomp.to_f
+num2 = gets.chomp 
 
-puts "Qual operação deseja fazer (+ - * /)"
-operacao = gets.chomp
-
-case operacao
+case operacao 
 when "+"
     resultado = num1 + num2
 when "-"
@@ -18,7 +15,7 @@ when "/"
     resultado = num1 / num2
 else
     puts "Operação inválida"
-    exist
+    exit
 end
 
 puts "O resultado é #{resultado}"
