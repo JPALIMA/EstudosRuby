@@ -3,7 +3,7 @@ file = File.open("arquivo.txt", "r")
 contents = file.read
 file.close
 
-puts contents #Exemplo de uso: lê o conteúdo de um arquivo de texto chamado
+puts contents #Exemplo de uso: lê o conteúdo de um arquivo de texto chamado "arquivo.txt"
 
 #Escrita em arquivo
 file = File.open("arquivo.txt", "w")
