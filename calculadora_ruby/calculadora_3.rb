@@ -21,4 +21,4 @@ else
     exit
 end
 
-puts "resultado é #{resultado}"
+puts "O resultado é #{resultado}"

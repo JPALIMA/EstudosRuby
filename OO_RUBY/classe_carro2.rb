@@ -1,5 +1,5 @@
 class Car
-    attr_accessor :make, :model, :year, :color 
+    attr_accessor :make, :model, :year, :color
 
     def initialize(make, model, year, color)
         @make = make
@@ -9,7 +9,7 @@ class Car
     end
 
     def start
-        puts "Starting the #{@make} #{model}..."
+        puts "Starting the #{@make} #{@model}..."
     end
 
     def stop
