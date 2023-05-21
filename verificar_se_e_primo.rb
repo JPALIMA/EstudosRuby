@@ -1,11 +1,11 @@
 def is_prime?(number)
     if number <= 1
-        return false 
+        return false
     end
 
     for i in 2..Math.sqrt(number)
         if number % i == 0
-            return false 
+            return false
         end
     end
 
