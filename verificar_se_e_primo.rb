@@ -4,7 +4,7 @@ def is_prime?(number)
     end
 
     for i in 2..Math.sqrt(number)
-        if number % i == 0
+        if number % i == 0 
             return false
         end
     end

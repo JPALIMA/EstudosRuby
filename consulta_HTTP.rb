@@ -6,4 +6,4 @@ http.use_ssl = true if url.scheme == 'https'
 
 response = http.get(url.path)
 
-puts response.body # Exemplo de uso: Exemplo de uso: faz uma consulta GET a um servidor web
+puts response.body #Exemplo de uso: faz uma consulta GET a um servidor web
