@@ -17,6 +17,6 @@ class Car
     end
 end
 
-my_car = Car.new("Toyota", "Colorolla", 2021, "blue")
+my_car = Car.new("Toyota", "Corolla", 2021, "blue")
 my_car.start
 my_car.stop
