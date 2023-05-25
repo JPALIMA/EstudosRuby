@@ -1,15 +1,16 @@
 tasks = []
 
-loop do "Digite uma tarefa para adicionar à lista (ou 'exit' para sair):"
-    input = gets.chomp 
+loop do
+    puts "Digite uma tarefa para adicionar à lista (ou 'exit' para sair); "
+    input = gets.chomp
 
     break if input == 'exit'
 
     tasks << input
-    puts "Tarefa aciocionada á lista."
+    puts "Tarefa adicionada à lista."
 end
 
-puts "Lista de tarefas: "
-task.each_with_index do |task, idedex|
-    puts  "#{index+1}. #{task}"
+puts "Lista de tarefas:"
+tasks.each_with_index do |task, index|
+    puts "#{index+1}. #{task}"
 end
