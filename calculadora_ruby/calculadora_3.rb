@@ -17,7 +17,7 @@ when "*"
 when "/"
     resultado = num1 / num2
 else
-    puts "Operadoção inválida"
+    puts "Operação inválida"
     exit
 end
 
