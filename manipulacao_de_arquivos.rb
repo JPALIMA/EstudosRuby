@@ -1,9 +1,9 @@
-# Leitura de arquivo
+#Leitura de arquivo
 file = File.open("arquivo.txt", "r")
 contents = file.read
-file.close
+file.close 
 
-puts contents #Exemplo de uso: lê o conteúdo de um arquivo de texto
+puts contents #exemplo de uso: lê o conteúdo de um arquivo de texto
 
 #Escrita em arquivo
 file = File.open("arquivo.txt", "w")
