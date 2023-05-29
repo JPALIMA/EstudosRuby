@@ -5,11 +5,11 @@ def is_prime?(number)
 
     for i in 2..Math.sqrt(number)
         if number % i == 0
-            return false
+            return false 
         end
     end
 
-    return true
+    return true 
 end
 
 puts is_prime?(7) #true
