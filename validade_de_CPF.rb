@@ -1,24 +1,32 @@
-puts "Digite o primeiro número:"
-num1 = gets.chomp.to_f
+def valida_cpf(cpf)
+    cpf = cpf.gsub(/[^0-9]/, '')
 
-puts "Digite o segundo número:"
-num2 = gets.chomp.to_f
+    if cpf.length != 11
+        return false 
+    end
 
-puts "Qual operação deseja fazer? (+ - * /)"
-operacao = gets.chomp
+    digito1 = 0 
+    digito2 = 0
 
-case operacao
-when "+"
-    resultado = num1 + num2
-when "-"
-    resultado = num1 - num2
-when "*"
-    resultado = num1 * num2
-when
-    resultado = num1 / num2
-else
-    puts "Operação inválida"
-    exit
+    (0..8).each do |i|
+        digito1 += (cpf[i].to_i * (i + 1))
+    end
+
+    digito1 = (digito1 % 11) % 10 
+    digito2 = ((digito2 + (digito1 * 9)) %  11) % 10
+    
+    if digito1 == cpf[9].to_i && digito2 == cpf[10].to_i
+        return true
+    else
+        return false 
+    end
 end
 
-puts "O resultado é #{resultado}"
+puts "Digite o CPF:"
+cpf = gets.chomp
+
+if valida_cpf(cpf)
+    puts "CPF válido"
+else
+    puts "CPF inválido"
+end

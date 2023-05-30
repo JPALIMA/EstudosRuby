@@ -1,8 +1,9 @@
 pessoa = {
     "nome" => "João",
     "idade" => 30,
-    "profissao" => "Engenheiro"
+    "profissao" => "Engeheiro"
 }
-    puts pessoa["nome"]
-    puts pessoa["idade"]
-    puts pessoa["profissao"]
+
+puts pessoa["nome"]
+puts pessoa["idade"]
+puts pessoa["profissao"]
