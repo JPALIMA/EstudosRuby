@@ -1,15 +1,15 @@
 module Matematica
-    PI = 3.1416
+    PI = 3.1316 
 
     def self.dobro (numero)
         numero * 2
     end
 
-    def self.raiz_quadradrada(numero)
+    def self.raiz_quadrada(numero)
         Math.sqrt(numero)
     end
 end
 
-puts Matematica::PI
+puts Matematica::PI 
 puts Matematica.dobro(5)
-puts Matematica.raiz_quadrada(16)
+puts Matematica.quadrada(16)
