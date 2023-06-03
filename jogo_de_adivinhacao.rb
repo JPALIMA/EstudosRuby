@@ -17,3 +17,4 @@ loop do
         puts "O número é menor que #{palpite}. Tente novamente"
     end
 end
+
