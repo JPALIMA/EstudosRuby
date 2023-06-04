@@ -4,9 +4,9 @@
 end
 
 print "Primeiro valor:"
-val1 = gets.chomp.to_i
+val1 = gets.chom.to_i
 
-print "Segundo valor:"
+print "Segundo  valor:"
 val2 = gets.chomp.to_i
 
 print "Segundo valor:"
@@ -15,7 +15,7 @@ val2 = gets.chomp.to_i
 print "Operador (+,-,*,/):"
 operador = gets.chomp 
 
-case operador 
+case operador
 when "+"
     puts Calculadora.new.sumar(val1, val2)
 when "-"
