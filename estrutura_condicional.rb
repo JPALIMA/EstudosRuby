@@ -1,4 +1,4 @@
-idade = 18
+idade = gets.chomp.to_i
 
 if idade >= 18
     puts "Pode dirigir!"
