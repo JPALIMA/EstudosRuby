@@ -6,14 +6,11 @@ end
 print "Primeiro valor:"
 val1 = gets.chom.to_i
 
-print "Segundo  valor:"
-val2 = gets.chomp.to_i
-
 print "Segundo valor:"
-val2 = gets.chomp.to_i
+val2 = gets.chomp_i
 
 print "Operador (+,-,*,/):"
-operador = gets.chomp 
+operador = gets.chomp
 
 case operador
 when "+"
