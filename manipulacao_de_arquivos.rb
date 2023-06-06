@@ -1,13 +1,11 @@
 #Leitura de arquivo
-file = File.open("arquivo.txt", "r")
-contents = file.read
-file.close 
+file.clos:error
 
 puts contents #exemplo de uso: lê o conteúdo de um arquivo de texto
 
-#Escrita em arquivo
+#Escrita de arquivo
 file = File.open("arquivo.txt", "w")
-file.write("Conteúdo do arquivo.")
+file.write("conteúdo do arquivo.")
 file.close
 
 #Adição ao final de um arquivo

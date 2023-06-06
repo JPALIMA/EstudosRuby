@@ -1,5 +1,5 @@
 module Matematica
-    PI = 3.1316 
+    PI = 3.1316
 
     def self.dobro (numero)
         numero * 2
@@ -10,6 +10,6 @@ module Matematica
     end
 end
 
-puts Matematica::PI 
+puts Matematica::PI
 puts Matematica.dobro(5)
 puts Matematica.quadrada(16)
