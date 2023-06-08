@@ -1,22 +1,23 @@
-class Automovel 
-    
-    def self.tipo_cambio
-        puts "Manual"
+class Carro
+    attr_accessor :marca, :modelo 
+
+    def initialize(marca, modelo)
+        @marca = marca
+        @modelo = modelo
     end
-    
-    
-    def acelera 
-        #Aciona injeção eletrônica
-        #injeta combustível e etc...
-        puts "acelerando automóvel..."
+
+    def mostrar_informacoes
+        puts "Marca: #{@marca}"
+        puts "Modelo: #{@modelo}"
     end
 end
 
-class Carro < Automovel
-    def acelera
-        # verica freios e outras coisas
-        #Que o carro especificamente necessita
-        puts "Verificando equipamento..."
-        super
-    end
-end
+#Criando um objeto da classe Carro
+carro = Carro.new("Toyota", "Corolla")
+
+#Acessando e modificando atributos
+carro.mcarca = "Honda"
+carro.modelo = "Civic"
+
+#Chamando o método para mostrar as informações
+carro.mostrar_informacoes
