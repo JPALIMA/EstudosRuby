@@ -4,7 +4,7 @@ class Pessoa
         @idade = idade
     end
 
-    def mostrar_iformacoes
+    def mostrar_informacoes
         puts "Nome: #{@nome}"
         puts "Idade: #{@idade}"
     end

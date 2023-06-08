@@ -16,7 +16,7 @@ end
 carro = Carro.new("Toyota", "Corolla")
 
 #Acessando e modificando atributos
-carro.mcarca = "Honda"
+carro.marca = "Honda"
 carro.modelo = "Civic"
 
 #Chamando o método para mostrar as informações
