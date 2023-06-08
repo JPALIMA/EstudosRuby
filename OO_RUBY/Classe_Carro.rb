@@ -12,12 +12,12 @@ class Carro
     end
 end
 
-#Criando um objeto da classe Carro
+#Criando um objetivo da classe Carro
 carro = Carro.new("Toyota", "Corolla")
 
 #Acessando e modificando atributos
 carro.marca = "Honda"
 carro.modelo = "Civic"
 
-#Chamando o método para mostrar as informações
+#Chamado o método para mostrar as informações
 carro.mostrar_informacoes

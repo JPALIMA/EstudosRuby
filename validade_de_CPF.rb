@@ -1,8 +1,8 @@
 def valida_cpf(cpf)
-    cpf = cpf.gsub(/[^0-9]/,  '')
+    cpf = cpf.gsub(/[^0-9]/, '')
 
     if cpf.length != 11
-        return false 
+        return false
     end
 
     digito1 = 0
