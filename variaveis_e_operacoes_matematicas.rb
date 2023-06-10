@@ -7,5 +7,5 @@ divisao = a / b
 
 puts "Soma: #{soma}"
 puts "Subtração: #{subtracao}"
-puts "Mulplicação: #{multiplicacao}"
+puts "Multplicação: #{mulplicacao}"
 puts "Divisão #{divisao}"
