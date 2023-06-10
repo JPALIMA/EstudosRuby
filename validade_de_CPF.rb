@@ -1,5 +1,5 @@
 def valida_cpf(cpf)
-    cpf = cpf.gsub(/[^0-9/]/, '')
+    cpf = cpf.gsub(/[^0-9]/, '') # Corrigida a expressão regular
 
     if cpf.length != 11
         return false
@@ -8,17 +8,11 @@ def valida_cpf(cpf)
     digito1 = 0
     digito2 = 0
 
-    (0..8)each do |i|
-        if cpf[i].nil?
-            return false
-        end
+    (0..8).each do |i|
         digito1 += (cpf[i].to_i * (i + 1))
     end
 
     (0..9).each do |i|
-        if cpf[i].nil?
-            return false
-        end
         digito2 += (cpf[i].to_i * (i + 1))
     end
 
