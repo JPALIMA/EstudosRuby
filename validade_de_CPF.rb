@@ -13,7 +13,7 @@ def valida_cpf(cpf)
     end
 
     (0..9).each do |i|
-        digito2 += (cpf[i].to_i * (i + 1))
+        digito2 += (cpf[i].to_i * (i + 2)) #Corrigido o calculo de digito2
     end
 
     digito1 = (digito1 % 11) % 10
