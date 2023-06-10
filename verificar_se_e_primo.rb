@@ -1,6 +1,6 @@
-def is_prime(number)
+def if_prime(number)
     if number <= 1
-        return false 
+        return false
     end
 
     for i in 2..Math.sqrt(number)
@@ -9,7 +9,7 @@ def is_prime(number)
         end
     end
 
-    return true 
+    return true
 end
 
 puts is_prime? #true
