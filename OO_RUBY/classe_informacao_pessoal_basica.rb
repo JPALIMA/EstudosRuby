@@ -10,7 +10,7 @@ class Pessoa
     end
 end
 
-# Criando um objeto da classe Pessoa
+# criando um objeto da classe Pessoa
 pessoa = Pessoa.new("João", 25)
 
 #Chamada o método para mostrar as informações
