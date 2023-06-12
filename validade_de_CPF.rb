@@ -1,5 +1,5 @@
 def valida_cpf(cpf)
-    cpf = cpf.gsub(/[^0-9]/, '') # Corrigida a expressão regular
+    cpf = cpf.gsub(/[^0-9]/, '')
 
     if cpf.length != 11
         return false
@@ -12,8 +12,8 @@ def valida_cpf(cpf)
         digito1 += (cpf[i].to_i * (i + 1))
     end
 
-    (0..9).each do |i|
-        digito2 += (cpf[i].to_i * (i + 2)) #Corrigido o calculo de digito2
+    (0..8).each do |i|
+        digito2 += (cpf[i].to_i * (9 - i))
     end
 
     digito1 = (digito1 % 11) % 10
@@ -26,11 +26,3 @@ def valida_cpf(cpf)
     end
 end
 
-puts "Digite o CPF:"
-cpf = gets.chomp
-
-if valida_cpf(cpf)
-    puts "CPF válido"
-else
-    puts "CPF inválido"
-end
