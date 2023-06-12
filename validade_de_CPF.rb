@@ -26,3 +26,11 @@ def valida_cpf(cpf)
     end
 end
 
+puts "Digite o CPF:"
+cpf = gets.chomp
+
+if valida_cpf(cpf)
+    puts "CPF válido"
+else
+    puts "CPF inválido"
+end
