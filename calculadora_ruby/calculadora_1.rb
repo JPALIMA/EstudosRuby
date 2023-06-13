@@ -32,7 +32,13 @@ when "+"
 when "-"
     puts Calculadora.new.restar(val1,val2)
 when "*"
-    puts Calculadora.new.dividir(val1,val2)
+    puts Calculadora.new.multiplicar(val1,val2)
 when "/"
+    if val2 != 0
+    puts Calculadora.new.dividir(val1,val2)
+    else
+        puts "Divisão por zero não é permitida."
+    end
+else
     puts "Operador inválido"
 end

@@ -1,5 +1,5 @@
 class Pessoa
-    attr_accessor :nome, :idade
+    attr_acessor :nome, :idade
 
     def initialize(nome, idade)
         @nome = nome
@@ -7,7 +7,7 @@ class Pessoa
     end
 
     def saudacao
-        puts "Olá, meu nome é #{@nome} e tenho #{@idade} anos."
+        puts "Olá, meu nome é #{@nome} e tenho #{@idade anos. }"
     end
 end
 
