@@ -13,18 +13,18 @@ class Calculadora
 
     def
         dividir(n,m)
-        n/m 
+        n/m
     end
 end
 
-print "Primer valor:"
+print "Primeiro valor:"
 val1 = gets.chomp.to_i
 
 print "Segundo valor:"
 val2 = gets.chomp.to_i
 
 print "Operador (+,-,*,/):"
-operador = gets.chomp 
+operador = gets.chomp
 
 case operador
 when "+"
