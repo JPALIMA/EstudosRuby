@@ -26,7 +26,7 @@ def valida_cpf(cpf)
     end
 end
 
-puts "Digite o CPF:"
+puts "Digite o CPF: "
 cpf = gets.chomp
 
 if valida_cpf(cpf)

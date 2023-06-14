@@ -1,6 +1,6 @@
 tasks = []
 
-look do
+look do 
     puts "Digite uma tarefa para adicionar à lista (ou 'exit' para sair); "
     input = gets.chomp
 
