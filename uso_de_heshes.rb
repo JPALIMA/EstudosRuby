@@ -10,4 +10,3 @@ pessoa[:profissao] = "Engeheiro" #adicionando um novo par chave-valor
 
 pessoa.each do |chave, valor|
     puts "#{chave}: #{valor}"
-end

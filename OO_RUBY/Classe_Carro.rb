@@ -1,5 +1,5 @@
 class Carro
-    attr_accessor :marca, :modelo 
+    attr_accessor :marca, :modelo
 
     def initialize(marca, modelo)
         @marca = marca
