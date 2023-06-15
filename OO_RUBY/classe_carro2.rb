@@ -1,5 +1,5 @@
 class Car
-    
+
     attr_accessor :make, :model, :year, :color
 
     def initialize(make, model, year, color)
