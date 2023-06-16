@@ -1,7 +1,7 @@
 tasks = []
 
 look do 
-    puts "Digite uma tarefa para adicionar à lista (ou 'exit' para sair); "
+    puts "Digite uma tarefa para adicionar à lista (ou 'exit' para sair);"
     input = gets.chomp
 
     break if input == 'exit'

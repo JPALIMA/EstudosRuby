@@ -10,7 +10,7 @@ val1 = gets.chomp.to_i
 print "Segundo valor: "
 val2 = gets.chomp.to_i
 
-print "Operador (+, -, *, /)"
+print "Operador (+,-,*,/)"
 operador = gets.chomp
 
 case operador
@@ -24,7 +24,7 @@ when "/"
     if val2 != 0
         puts Calculadora.new.dividir(val1, val2)
     else
-        puts "Divisão por zero não é permitida."
+        puts "Divisão por zero não é permitido."
     end
 else
     puts "Operador inválido"
