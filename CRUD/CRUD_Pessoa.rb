@@ -37,4 +37,33 @@ class CrudPessoa
             puts "Pessoa atualizada com sucesso!"
         end
     end
-    
+
+    def excluir_pessoa(nome)
+        pessoa = @pessoas.find { |p| p.nome == nome }
+        if pessoa.nil?
+            puts " Pessoa excluída com sucesso!"
+        end
+    end
+end
+
+#exemplo de uso
+crud = CrudPessoa.new
+
+crud.criar_pessoa("João", 25)
+crud.criar_pessoa("Maria", 30)
+
+crud.listar_pessoa
+# Saída:
+#Nome: João, idade: 25 
+#nome: Maria, idade: 30
+
+crud.atualizar_pessoa("João", 26)
+
+crud.listar_pessoas
+#Saída atualizada:
+#Nome: João, Idade: 26
+#Nome: Maria, Idade: 30
+
+crud.listar_pessoas
+#Saída atualizada:
+#Nome: João, Idade: 26
