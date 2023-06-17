@@ -31,37 +31,10 @@ class CrudPessoa
     def atualizar_pessoa(nome, nova_idade)
         pessoa = @pessoas.find { |p| p.nome == nome }
         if pessoa.nil?
-            puts "Pessoa não encontrada."
+            puts "Pesssoa não encontrada."
         else
             pessoa.idade = nova_idade
             puts "Pessoa atualizada com sucesso!"
         end
     end
-
-    def excluir_pessoa(nome)
-        pessoa = @pessoas.find { |p| p.nome == nome }
-        if pessoa.nil?
-            puts "Pessoa não encontrada. "
-        else
-            @pessoas.delete(pessoa)
-            puts "Pessoa excluída com sucesso!"
-        end
-    end
-end
-
-# Exemplo de uso
-crud = CrudPessoa.new
-
-crud.criar_pessoa("João", 25)
-crud.criar_pessoa("Maria", 30)
-
-crud.listar_pessoas
-# Saída atualizada:
-#Nome: João, Idade: 26
-#Nome: Maria, Idade: 30
-
-crud.exluir_pessoa("Maria")
-
-crud.listar_pessoas
-# Saída atualizada:
-# Nome: João, Idade: 26
+    
