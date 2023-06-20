@@ -22,6 +22,11 @@ class CrudPessoa
         pessoa = Pessoa.new(id, nome, idade)
         @pessoas << pessoa
     end
-
-
     
+def lista_pessoa
+    @pessoa.each do |pessoa|
+        puts pessoa
+    end
+end
+
+
