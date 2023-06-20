@@ -30,3 +30,35 @@ def lista_pessoa
 end
 
 
+def atualizar_pessoa(id, novo_nome, nova_idade)
+    pessoa = @pessoa.find { |p| p.id == id }
+    pessoa.nome = novo_nome
+    pessoa.idade = nova_idade
+end
+
+def buscar_pessoa(id)
+    pessoa = @pessoas.find { |p| p.id == id }
+    puts pessoa
+end
+end
+#Exemplo de uso
+crud = CrudPessoa.new
+
+crud.criar_pessoa("João" 25)
+crud.criar_pessoa("Maria", 30)
+
+crud.listar_pessoas
+#Saída:
+#ID: 0, Nome: João, Idade: 25
+#ID: 1, Nome: Maria, Idade: 30
+
+crud.atualizar_pessoa(0, "João Silva", 26)
+
+crud.listar_pessoas
+#Saída Atualizada:
+#ID: 0, Nome: João Silva, Idade: 26
+#ID: 1, Nome: Maria, Idade:30
+
+crud.buscar_pessoa(1)
+#Saída:
+#ID: 1, Nome: Maria, idade:30
