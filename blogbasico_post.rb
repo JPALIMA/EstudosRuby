@@ -11,7 +11,7 @@ end
 class Blog
     attr_accessor :posts
 
-    def initialize 
+    def initialize
         @posts = []
     end
 
@@ -24,17 +24,13 @@ class Blog
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "------------------------"
+            puts "-----------------------"
         end
     end
 end
 
 #Criando alguns posts
-post1 = Post.new("Olá, Mundo!", "Joao Pedro", "Bem vindo ao meu Blog")
-post2 = Post.new("Ruby é incrível!", "Joao Pedro", "Aqui estão algumas razões pelas quais Ruby é legal")
-
-# Criando um blog e adicionando os posts
-blog = Blog.new
+post1 = Post.new
 blog.add_post(post1)
 blog.add_post(post2)
 
