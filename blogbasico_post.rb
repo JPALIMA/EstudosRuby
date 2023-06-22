@@ -38,4 +38,17 @@ class Blog
         if found_posts.empty?
             puts "No posts found for author: #{author}"
         else
-        
+            puts "Posts by author #{author}:"
+            found_posts.each do |post|
+                puts "Title: #{post.title}"
+                puts "Author: #{post.author}"
+                puts "Content: #{post.content}"
+                puts "-----------------------"
+            end
+        end
+    end
+end
+
+#Criando uma instância da classe Blog
+blog = Blog.new
+
