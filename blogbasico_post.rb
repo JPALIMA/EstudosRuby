@@ -52,3 +52,25 @@ end
 #Criando uma instância da classe Blog
 blog = Blog.new
 
+#Criando alguns posts
+post1 = Post.new("Title 1", "Author 1", "Content 1")
+post2 = Post.new("Title 2", "Author 2", "Content 2")
+
+#Adicionando os posts ao Blog
+blog.add_post(post1)
+blog.add_post(post2)
+
+#Exibindo os posts do Blog
+blog.display_posts
+
+#Excluindo um post específico
+blog.delete_post(post1)
+
+#Excluido um post específico
+blog.delete_post(post1)
+
+#Exibindo a contagem de posts
+blog.count_posts
+
+#Buscando posts por autor
+blog.search_posts_by_author("Author 2")
