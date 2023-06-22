@@ -16,23 +16,26 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post
+        @posts << post 
     end
 
-    def display_posts
+    def display_posts 
         @posts.each do |post|
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "-----------------------"
+            puts "---------------------"
         end
     end
-end
 
-#Criando alguns posts
-post1 = Post.new
-blog.add_post(post1)
-blog.add_post(post2)
+    def count_posts
+        puts "Total Posts: #{@posts.length}"
+    end
 
-#Exibindo os posts do blog
-blog.display_posts
+    def search_posts_by_author(author)
+        found_posts = @posts.select { |post| post.author == author}
+
+        if found_posts.empty?
+            puts "No posts found for author: #{author}"
+        else
+        
