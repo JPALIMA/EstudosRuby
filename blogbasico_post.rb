@@ -28,7 +28,7 @@ class Blog
         end
     end
 
-    def cout_posts        
+    def count_posts        
         puts "Total posts: #{@posts.length}"
     end
     
@@ -41,4 +41,26 @@ class Blog
             puts "Posts by author #{author}:"
             found_posts.each do |post|
                 puts "Title: #{post.title}"
-                
+                puts "Author: #{post.author}"
+                puts "Content: #{post.content}"
+                puts "--------------------"
+            end
+        end
+    end
+end
+
+#Criando um instância da Classe Blog
+blog = Blog.new
+
+#Criando alguns posts
+post1 = Post.new("Title 1", "Author 2", "Content 1")
+post2 = Post.new("Title 2", "Author 2", "Content 2")
+
+#adicionado os pots ao Blog
+blog.display_posts
+
+#Exibindo os posts específico
+blog.delete_post(post1)
+
+
+
