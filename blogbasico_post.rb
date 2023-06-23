@@ -16,10 +16,10 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post 
+        @posts << post
     end
 
-    def display_posts 
+    def display_posts
         @posts.each do |post|
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
@@ -43,7 +43,7 @@ class Blog
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "-----------------------"
+                puts "--------------------"
             end
         end
     end
@@ -63,10 +63,7 @@ blog.add_post(post2)
 #Exibindo os posts do Blog
 blog.display_posts
 
-#Excluindo um post específico
-blog.delete_post(post1)
-
-#Excluido um post específico
+#Excluidno um post específico
 blog.delete_post(post1)
 
 #Exibindo a contagem de posts
