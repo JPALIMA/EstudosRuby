@@ -3,7 +3,7 @@ class Post
 
     def initialize(title, author, content)
         @title = title
-        @author = author
+        @author = author 
         @content = content
     end
 end
@@ -16,20 +16,20 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post 
+        @posts << post
     end
 
     def display_posts
         @posts.each do |post|
-            puts "Tilte: #{post.title}"
+            puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "-------------------"
+            puts "---------------------"
         end
     end
 
     def count_posts
-        puts "Total posts: #{posts.length}"
+        puts "Total posts: #{@posts.length}"
     end
 
     def delete_post(post)
@@ -43,21 +43,20 @@ class Blog
         if found_posts.empty?
             puts "No posts found for author: #{author}"
         else
+            puts "No posts found for author: #{author}"
+        else
             puts "Posts by author #{author}:"
             found_posts.each do |post|
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "-------------------"
+                puts "----------------"
             end
         end
     end
 end
 
-# Criando uma instância da Classe Blog
-blog = Blog.new
-
-#Criando alguns posts
+# Criando alguns posts
 post1 = Post.new("Title 1", "Author 2", "Content 1")
 post2 = Post.new("Title 2", "Author 2", "Content 2")
 
@@ -65,10 +64,11 @@ post2 = Post.new("Title 2", "Author 2", "Content 2")
 blog.add_post(post1)
 blog.add_post(post2)
 
-#Exibindo dos posts específicos
+
+#Exibindo os posts específicos
 blog.display_posts
 
-#Excluíndo um post específico
+#Excluindo um post específico 
 blog.delete_post(post1)
 
 #Exibindo a contagem de posts
@@ -76,4 +76,3 @@ blog.count_posts
 
 #Buscando posts por autor
 blog.search_posts_by_author("Author 2")
-
