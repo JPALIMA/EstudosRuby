@@ -16,24 +16,29 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post
+        @posts << post 
     end
 
     def display_posts
         @posts.each do |post|
-            puts "Title: #{post.title}"
+            puts "Tilte: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
             puts "-------------------"
         end
     end
 
-    def count_posts        
-        puts "Total posts: #{@posts.length}"
+    def count_posts
+        puts "Total posts: #{posts.length}"
     end
-    
+
+    def delete_post(post)
+        @posts.delete(post)
+        puts "Post deleted."
+    end
+
     def search_posts_by_author(author)
-        found_posts = @posts.select { |post| post.author == author}
+        found_posts = @posts.select { |post| post.author == author }
 
         if found_posts.empty?
             puts "No posts found for author: #{author}"
@@ -43,24 +48,32 @@ class Blog
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "--------------------"
+                puts "-------------------"
             end
         end
     end
 end
 
-#Criando um instância da Classe Blog
+# Criando uma instância da Classe Blog
 blog = Blog.new
 
 #Criando alguns posts
 post1 = Post.new("Title 1", "Author 2", "Content 1")
 post2 = Post.new("Title 2", "Author 2", "Content 2")
 
-#adicionado os pots ao Blog
+#Adicionando os posts ao Blog
+blog.add_post(post1)
+blog.add_post(post2)
+
+#Exibindo dos posts específicos
 blog.display_posts
 
-#Exibindo os posts específico
+#Excluíndo um post específico
 blog.delete_post(post1)
 
+#Exibindo a contagem de posts
+blog.count_posts
 
+#Buscando posts por autor
+blog.search_posts_by_author("Author 2")
 
