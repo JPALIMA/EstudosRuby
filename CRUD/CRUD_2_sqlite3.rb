@@ -22,4 +22,13 @@ begin
     db.execute "INSERT INTO Cars VALUES(6, 'Citroen', 21000)" unless exists?(db, 6)
     db.execute "INSERT INTO Cars VALUES(7, 'Hummer', 414000)" unless exists?(db, 7)
     db.execute "INSERT INTO Cars VALUES(8, 'Volkswagen', 21600)" unless exists?(db, 8)
-    
+
+    #Finalizar transação
+    db.commit
+rescue SQLite3::Exception => e
+    puts "Exception occurred"
+    puts e
+    db.rollback if db #Desfazer transação em caso de exceção
+ensure
+    db.close if db
+end
