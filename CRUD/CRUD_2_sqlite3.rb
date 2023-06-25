@@ -7,8 +7,8 @@ def exists?(db, id)
 end
 
 begin
-    fb = SQLite3::Database.open "test.db"
-    db.excute "CREATE TABLE IF NOT EXISTS Cars(Id INTEGER PRIMARY KEY, Name TEXT, Price INT)"
+    db = SQLite3::Database.open "test.db"
+    db.execute "CREATE TABLE IF NOT EXISTS Cars(Id INTEGER PRIMARY KEY, Name TEXT, Price INT)"
 
     #Iniciar transação
     db.transaction
