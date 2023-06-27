@@ -1,45 +1,45 @@
-#Inportar a biblioteca para trabalhar com o SQLite
+#Importar a biblioteca para trabalhar com o SQLite
 require 'sqlite3'
 
-#Cria uma conexão com o banco de dados
-db = SQLite3::Database.new('tasks.db')
+#Método para criar uma conexão com o banco de dados
+def create_connection
+    SQLite3::Database.new('tasks.db')
+end
 
-#Cria a tabela "tasks" se ela não existir
-db.execute <<-SQL
+# Método para criar a tabela "tasks" se ela não existir
+def create_tabela(connection)
+    connection.execute <<-SQL
     CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         description TEXT
-    );
+        );
     SQL
+end
 
-    #Método para criar uma nova tarefa
-    def create_task(title, description)
-        db.execute("INSERT INTO tasks (title, description) VALUES (?, ?)", [title, description])
+#Método para criar uma nova tarefa
+def create_task(connection, title, description)
+    connection.execute("INSERT INTO tasks (title, description) VALUES (?, ?)", [title, description])
+end
+
+#Método para listar todas as tarefas
+def list_tasks(connection)
+    tasks = connection.execute("SELECT * FROM tasks")
+    tasks.each do |task|
+        puts "ID: #{task[0]}, Title: #{task[1]}, Description: #{task[2]}"
     end
+end
 
-    #Método para listar todas as tarefas
-    def list_tasks
-        tasks.each do |task|
-            puts "ID: #{task[0]}, Title: #{task[1]}, Description: #{task[2]}"
-        end
-    end
+#Método para excluir uma tarefa
+def delete_task(connection, id)
+    connection.execute("DELETE FROM tasks WHERE id = ?", [id])
+end
 
-    #Método para atualizar uma tarefa existente
-    def update_task(id, title, description)
-        db.execute("UPDATE tasks SET title = ?, description = ? WHERE id = ?", [title, description, id])
-    end
+#Cria a conexão com o banco de dados
+db = create_connection
 
-    #Método para excluir uma tarefa
-    def delete_task(id)
-        db.execute("DELETE FROM tasks WHERE id = ?", [id])
-    end
+#Cria a tabela "tasks" se ela não existir
+create_table(db)
 
-    #Exemplo e uso dos métodos
-    create_task("Tarefa 1", "Descrição da Tarefa 1")
-    create_task("Tarefa 2", "Descrição da Tarefa 2")
-    list_tasks
-
-    puts "Excluíndo a Tarefa 2..."
-    delete_task(2)
-    list_tasks
+# exemplo de uso dos métodos
+create_table(db)
