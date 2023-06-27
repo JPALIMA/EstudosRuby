@@ -3,12 +3,12 @@ class Post
 
     def initialize(title, author, content)
         @title = title
-        @author = author 
+        @author = author
         @content = content
-    end
+    end 
 end
 
-class Blog
+classs Blog
     attr_accessor :posts
 
     def initialize
@@ -16,7 +16,7 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post
+        @posts << post 
     end
 
     def display_posts
@@ -24,7 +24,7 @@ class Blog
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "---------------------"
+            puts "------------------"
         end
     end
 
@@ -37,12 +37,10 @@ class Blog
         puts "Post deleted."
     end
 
-    def search_posts_by_author(author)
-        found_posts = @posts.select { |post| post.author == author }
+    def seach-posts_by_author(author)
+        found_posts = @posts.select { post| post.author == author }
 
         if found_posts.empty?
-            puts "No posts found for author: #{author}"
-        else
             puts "No posts found for author: #{author}"
         else
             puts "Posts by author #{author}:"
@@ -50,25 +48,21 @@ class Blog
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "----------------"
+                puts "------------------"
             end
         end
     end
 end
 
-# Criando alguns posts
-post1 = Post.new("Title 1", "Author 2", "Content 1")
+#Criando alguns posts
+post1 = Post.new("title 1", "Author 2", "Content 1")
 post2 = Post.new("Title 2", "Author 2", "Content 2")
 
 #Adicionando os posts ao Blog
 blog.add_post(post1)
 blog.add_post(post2)
 
-
 #Exibindo os posts específicos
-blog.display_posts
-
-#Excluindo um post específico 
 blog.delete_post(post1)
 
 #Exibindo a contagem de posts
