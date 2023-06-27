@@ -8,7 +8,7 @@ class Post
     end 
 end
 
-classs Blog
+class Blog
     attr_accessor :posts
 
     def initialize
@@ -37,8 +37,8 @@ classs Blog
         puts "Post deleted."
     end
 
-    def seach-posts_by_author(author)
-        found_posts = @posts.select { post| post.author == author }
+    def search_posts_by_author(author)
+        found_posts = @posts.select { |post| post.author == author }
 
         if found_posts.empty?
             puts "No posts found for author: #{author}"
@@ -54,6 +54,9 @@ classs Blog
     end
 end
 
+#Criando um objeto Blog
+blog = Blog.new
+
 #Criando alguns posts
 post1 = Post.new("title 1", "Author 2", "Content 1")
 post2 = Post.new("Title 2", "Author 2", "Content 2")
@@ -61,6 +64,9 @@ post2 = Post.new("Title 2", "Author 2", "Content 2")
 #Adicionando os posts ao Blog
 blog.add_post(post1)
 blog.add_post(post2)
+
+#Excluindo um post específicos
+blog.display_posts
 
 #Exibindo os posts específicos
 blog.delete_post(post1)
