@@ -30,6 +30,12 @@ def list_tasks(connection)
     end
 end
 
+#Método para criar uma nova tarefa
+def create_task(connection, title, description)
+    connection.execute("INSERT INTO tasks (title, description) VALUE (?, ?)", [title, description])
+end
+
+
 #Método para excluir uma tarefa
 def delete_task(connection, id)
     connection.execute("DELETE FROM tasks WHERE id = ?", [id])
@@ -42,4 +48,14 @@ db = create_connection
 create_table(db)
 
 # exemplo de uso dos métodos
-create_table(db)
+create_table(db, "Tarefa 1", "Descrição da Tarefa 1")
+create_task(db, "Tarefa 2", "Descrição da Tarefa 2")
+lis_tasks(db)
+
+puts "Atualizando a Tarefa 1..."
+update_task(db, 1, "Tarefa 1 Atualizada", "Nova descriçção da Tarefa 1")
+list_tasks(db)
+
+puts "Excluindo a Tarefa 2..."
+delete_task(db, 2)
+list_tasks(db)
