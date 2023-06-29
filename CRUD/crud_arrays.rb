@@ -12,7 +12,7 @@ class Product
     end
 end
 
-class ProductManeg:error
+class ProductManager
     def initialize
         @products = []
         @next_id = 1
@@ -33,9 +33,6 @@ class ProductManeg:error
         product = find(id)
         return false unless product
 
-        product = find(id)
-        return false unless product
-
         product.name = name
         product.price = price
         true
@@ -43,7 +40,7 @@ class ProductManeg:error
 
     def delete(id)
         product = find(id)
-        return false unles product
+        return false unless product
 
         @products.delete(product)
         true
@@ -52,5 +49,22 @@ class ProductManeg:error
     def all
         @products
     end
+end
+
+#Exemplo de uso
+manager = ProductManager.new
+
+product1 = manager.create("Produto 1", 10.99)
+puts product1
+
+product2 =  manager.find(1)
+puts product2
+
+manager.update(1, "Novo Produto 1", 19.99)
+
+manager.delete(1)
+
+manager.all.each do |product|
+    puts product
 end
 
