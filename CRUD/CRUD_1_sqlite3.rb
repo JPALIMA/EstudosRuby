@@ -1,5 +1,5 @@
 #Importar a biblioteca para trabalhar com o SQLite
-require 'aqlite3'
+require 'sqlite3'
 
 #Método para criar uma conexão com o banco de dados
 def create_connection
@@ -19,7 +19,7 @@ end
 
 #Método para criar uma nova tarefa
 def create_task(connection, title, description)
-    connection.execute("INSERT INTO tasks (title, description) VALUES (?, ?)", [tile, description])
+    connection.execute("INSERT INTO tasks (title, description) VALUES (?, ?)", [title, description])
 end
 
 #Método para listar todas as tarefas
@@ -32,13 +32,20 @@ end
 
 #Método para atualizar uma terefa
 def update_task(connection, id, title, description)
-    connection.execute("UPDATE tasks SET title = ?, description = ? WHETE id = ?", [title, description, id])
+    connection.execute("UPDATE tasks SET title = ?, description =  WHETE id = ?", [title, description, id])
+end
+
+#Método para excluir uma tarefa
+def delete_task(connection, id)
+    connection.execute("DELETE FROM tasks WHERE id = ?", [id])
 end
 
 #Cria a conexão com o banco de dados
+db = create_connection
+
+#Cria a tabela "tasks" se ela não existir
 db = create_tabela(db)
  
-
 #Exemplo de uso dos métodos
 create_task(db, "Tarefa 1", "Descrição da Tarefa 1")
 create_task(db, "Tarefa 2", "Descrição da Tarefa 2")
