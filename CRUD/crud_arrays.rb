@@ -6,9 +6,13 @@ class Product
         @name = name
         @price = price
     end
+
+    def to_s
+        "ID: #{@id}, Name: #{@name}, Price: #{@price}"
+    end
 end
 
-class ProductManeger
+class ProductManeg:error
     def initialize
         @products = []
         @next_id = 1
@@ -29,6 +33,9 @@ class ProductManeger
         product = find(id)
         return false unless product
 
+        product = find(id)
+        return false unless product
+
         product.name = name
         product.price = price
         true
@@ -36,7 +43,7 @@ class ProductManeger
 
     def delete(id)
         product = find(id)
-        return false unless product
+        return false unles product
 
         @products.delete(product)
         true
@@ -47,22 +54,3 @@ class ProductManeger
     end
 end
 
-#Exemplo de uso
-maneger = ProductManeger.new
-
-#Criar um novo produto
-product1 = maneger.create("Produto 1", 10.99)
-puts product1.inspect
-
-#Encontrar um produto por ID
-product2 = maneger.find(1)
-puts product2.inspect
-
-#Autalizar um produto
-maneger.update(1, "Novo Produto 1", 19.99)
-
-#Deletar um produto
-maneger.delete(1)
-
-#Obter todos os produtos
-puts maneger.all.inspect
