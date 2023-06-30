@@ -20,7 +20,7 @@ class ProductManager
 
     def create(name, price)
         product = Product.new(@next_id, name, price)
-        @products << product
+        @product << product
         @next_id += 1
         product
     end
@@ -57,7 +57,7 @@ manager = ProductManager.new
 product1 = manager.create("Produto 1", 10.99)
 puts product1
 
-product2 =  manager.find(1)
+product2 = manager.find(1)
 puts product2
 
 manager.update(1, "Novo Produto 1", 19.99)
@@ -67,4 +67,3 @@ manager.delete(1)
 manager.all.each do |product|
     puts product
 end
-
