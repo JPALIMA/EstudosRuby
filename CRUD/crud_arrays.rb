@@ -20,16 +20,16 @@ class ProductManager
 
     def create(name, price)
         product = Product.new(@next_id, name, price)
-        @product << product
+        @products << product
         @next_id += 1
         product
     end
 
     def find(id)
-        @products.find { |product| product.id == id }
+        @products.find { |produto| product.id == id }
     end
-
-    def update(id, name, price)
+    
+    def update(id, nema, price)
         product = find(id)
         return false unless product
 
@@ -60,7 +60,7 @@ puts product1
 product2 = manager.find(1)
 puts product2
 
-manager.update(1, "Novo Produto 1", 19.99)
+manager.delete(1, "Novo Produto 1", 19.99)
 
 manager.delete(1)
 
