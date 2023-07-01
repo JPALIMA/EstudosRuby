@@ -5,7 +5,7 @@ class Post
         @title = title
         @author = author
         @content = content
-    end 
+    end
 end
 
 class Blog
@@ -16,7 +16,7 @@ class Blog
     end
 
     def add_post(post)
-        @posts << post 
+        @posts << post
     end
 
     def display_posts
@@ -24,7 +24,7 @@ class Blog
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "------------------"
+            puts "---------------"
         end
     end
 
@@ -48,7 +48,7 @@ class Blog
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "------------------"
+                puts "-------------------"
             end
         end
     end
@@ -58,7 +58,7 @@ end
 blog = Blog.new
 
 #Criando alguns posts
-post1 = Post.new("title 1", "Author 2", "Content 1")
+post1 = Post.new("Title 1", "Author 2", "Content 1")
 post2 = Post.new("Title 2", "Author 2", "Content 2")
 
 #Adicionando os posts ao Blog
@@ -74,5 +74,5 @@ blog.delete_post(post1)
 #Exibindo a contagem de posts
 blog.count_posts
 
-#Buscando posts por autor
+#Buscando posts por author
 blog.search_posts_by_author("Author 2")
