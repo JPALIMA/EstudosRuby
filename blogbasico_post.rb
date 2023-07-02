@@ -1,5 +1,5 @@
 class Post
-    attr_accessor :title, author, content
+    attr_accessor :title, :author, :content
 
     def initialize(title, author, content)
         @title = title
@@ -19,12 +19,12 @@ class Blog
         @posts << post
     end
 
-    def display_post
+    def display_posts
         @posts.each do |post|
             puts "Title: #{post.title}"
             puts "Author: #{post.author}"
             puts "Content: #{post.content}"
-            puts "--------------"
+            puts "----------------"
         end
     end
 
@@ -34,7 +34,7 @@ class Blog
 
     def delete_post(post)
         @posts.delete(post)
-        puts "Post deleted."
+        puts "Post delete."
     end
 
     def search_posts_by_author(author)
@@ -45,11 +45,10 @@ class Blog
         else
             puts "Posts by author #{author}:"
             found_posts.each do |post|
-                puts "Posts by author #{author}:"
                 puts "Title: #{post.title}"
                 puts "Author: #{post.author}"
                 puts "Content: #{post.content}"
-                puts "---------------"
+                puts "-----------------"
             end
         end
     end
@@ -69,8 +68,12 @@ blog.add_post(post2)
 #Excluindo um post específicos
 blog.display_posts
 
-#Exibindo os posts específicos
-blog.delete_post(pos1)
+#Exibindo  os posts específicos 
+blog.delete_post(post1)
 
-#Buscando posts por author 
-blog.search_posts_by_author("Author 2")
+#Exibindo a contagem de posts
+blog.count_posts
+
+#Buscando posts por author
+blog.search_posts_by_author("author 2")
+
