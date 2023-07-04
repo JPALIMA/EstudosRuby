@@ -25,45 +25,4 @@ class ProductManager
         product
     end
 
-    def find(id)
-        @products.find { |produto| product.id == id }
-    end
     
-    def update(id, nema, price)
-        product = find(id)
-        return false unless product
-
-        product.name = name
-        product.price = price
-        true
-    end
-
-    def delete(id)
-        product = find(id)
-        return false unless product
-
-        @products.delete(product)
-        true
-    end
-
-    def all
-        @products
-    end
-end
-
-#Exemplo de uso
-manager = ProductManager.new
-
-product1 = manager.create("Produto 1", 10.99)
-puts product1
-
-product2 = manager.find(1)
-puts product2
-
-manager.delete(1, "Novo Produto 1", 19.99)
-
-manager.delete(1)
-
-manager.all.each do |product|
-    puts product
-end
