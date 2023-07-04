@@ -25,4 +25,33 @@ class ProductManager
         product
     end
 
-    
+    def find(id)
+        @products.find { |product| product.id == id }
+    end
+
+    def update(id, name, price )
+        product - find(id)
+        return false unless product
+
+        product.name = name
+        product.price = price
+        true
+    end
+
+    def delete(id)
+        product = find(id)
+        return false unless product
+
+        @products.delete(product)
+        true
+    end
+
+    def all
+        @products
+    end
+end
+
+#Exemplo de uso
+manager = ProductManager.new
+
+product1 = manager.create("Produto 1")
