@@ -47,11 +47,10 @@ class Product
     end
   
     def all
-      @products.each do |product|
-        puts products
-      end
+      @products
     end
   end
+ 
   
   # Exemplo de uso
   manager = ProductManager.new
@@ -64,6 +63,6 @@ class Product
   
   manager.update(1, "Novo Produto 1", 19.99)
   
-  manager.all
-
+  manager.all.each do |product|
+    puts product
   end
