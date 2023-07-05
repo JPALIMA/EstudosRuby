@@ -32,3 +32,29 @@ class ProductManager
 
     def update(id, name, price)
         product = find(id)
+        return false unless product
+
+        product.name = name
+        product.price = price
+        true
+    end
+
+    def delete(id)
+        product = find(id)
+        return false unless product
+
+        @products.delete(product)
+        true
+    end
+
+    def all
+        @products.delete(product)
+        true
+    end
+
+    def all
+        @products
+    end
+end
+
+#Exmplo de uso
