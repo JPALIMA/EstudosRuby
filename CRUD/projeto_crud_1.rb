@@ -50,7 +50,7 @@ end
 #Exemplo de uso
 user_repository = UserRepository.new
 
-user1 = user_repository.create('Joao', 'joao@exemplo.com')
+user1 = user_repository.create('Joaozinho', 'joaozinho@exemplo.com')
 user2 = user_repository.create('Joana', 'joana@exemplo.com')
 
 puts user1.name # Saída: joao
