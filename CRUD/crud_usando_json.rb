@@ -15,7 +15,7 @@ class UserRepository
     def initialize(file_path)
         @file_path = file_path
         @users = load_users || []
-        @next_id = @users.empty? ? 1 : @users.last.id + 1
+        @next_id = @users.empty? ? 1 : @users.max_by(&:id).id + 1
     end
 
     def create(name, email)
@@ -49,16 +49,23 @@ class UserRepository
         user
     end
 
+    def all
+        @users
+    end
+
+    private
+
     def load_users
         return nil unless File.exist?(@file_path)
 
         data = File.read(@file_path)
-        JSON.parse(data, object_class: User)
+        user_data = JSON.parse(data)
+        user_data.map { |user| User.new(user['id'], user['name'], user['email']) }
     end
 
     def save_users
-        data = JSON.generate(@users)
-        File.write(@file_path, data)
+        data = @users.map { |user| { id: user.id, name: user.name, email: user.email}}
+        File.write(@file_path, JSON.generate(data))
     end
 end
 
