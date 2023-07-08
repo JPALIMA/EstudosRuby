@@ -61,3 +61,18 @@ class UserRepository
         File.write(@file_path, data)
     end
 end
+
+#Exemplo de uso
+user_repository = UserRepository.new('users.json')
+
+user1 = user_repository.create('Joaozinho', 'joaozinho@exemplo.com')
+user2 = user_repository.create('joao', 'joao@exemplo.com')
+
+puts user1.name #Saída: joaozinho
+puts user2.email #Saída: jane@exemplo.com
+
+user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
+puts user1.name #Saída: joao
+
+user_repository.delete(user2.id)
+puts user_repository.all.length # Saída: 1
