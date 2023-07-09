@@ -15,7 +15,7 @@ class UserRepository
     def initialize(file_path)
         @file_path = file_path
         @users = load_users || []
-        @next_id = @users.empty? ? 1 : @users.max_by(&:id).id + 1
+        @next_id = @users.empty? ? 1 : @users.map(&:id).max.to_i + 1
     end
 
     def create(name, email)
@@ -30,7 +30,7 @@ class UserRepository
         @users.find { |user| user.id == id }
     end
 
-    def upadate(id, name, email)
+    def update(id, name, email)
         user = find(id)
         return nil unless user
 
