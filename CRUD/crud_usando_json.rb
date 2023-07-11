@@ -54,7 +54,7 @@ class UserRepository
     end
 
     def calculate_next_id
-        return 1 id @users.empty?
+        return 1 if @users.empty?
 
         max_id = @users.map(&:id).compact.max
         max_id ? max_id + 1 : 1
