@@ -36,7 +36,16 @@ class UserRepository
         user.name = name
         user.email = email
         save_users
-    user
+        user
+    end
+
+    def delete(id)
+        user = find(id)
+        return nil unless user
+
+        @users.delete(user)
+        save_users
+        user
     end
 
     def all
@@ -75,5 +84,8 @@ user2 = user_repository.create('Joao', 'joao@exemplo.com')
 puts user1.name #Saída: joaozinho
 puts user2.email #Saída: joao@exemplo.com
 
-user_repository.delte(user2.id)
+user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
+puts user1.name #Saída: joao
+
+user_repository.delete(user2.id)
 puts user_repository.all.length # Saída: 1
