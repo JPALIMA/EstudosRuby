@@ -55,7 +55,7 @@ class UserRepository
     private
 
     def load_users
-        return nil unless File.exist?(@file-path)
+        return nil unless File.exist?(@file_path)
 
         data = File.read(@file_path)
         user_data = JSON.parse(data)
