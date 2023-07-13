@@ -26,7 +26,7 @@ class UserRepository
     end
 
     def find(id)
-        @users.find { |user| user.id == id }
+        @users.find { |user| user.id == id}
     end
 
     def update(id, name, email)
@@ -68,14 +68,14 @@ class UserRepository
         max_id = @users.map(&:id).compact.max
         max_id ? max_id + 1 : 1
     end
-
+    
     def save_users
         data = @users.map { |user| {id: user.id, name: user.name, email: user.email}}
         File.write(@file_path, JSON.generate(data))
     end
 end
 
-#Exemplo de uso
+#exemplo de uso
 user_repository = UserRepository.new('users.json')
 
 user1 = user_repository.create('Joaozinho', 'joaozinho@exemplo.com')
@@ -89,4 +89,3 @@ puts user1.name #Saída: joao
 
 user_repository.delete(user2.id)
 puts user_repository.all.length # Saída: 1
-
