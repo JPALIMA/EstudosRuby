@@ -31,7 +31,7 @@ class UserRepository
 
     def update(id, name, email)
         user = find(id)
-        return nil uless user
+        return nil unless user
 
         user.name = name
         user.email = email
