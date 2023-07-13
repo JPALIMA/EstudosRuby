@@ -16,7 +16,7 @@ class UserRepository
         @users = load_users || []
         @next_id = calculate_next_id
     end
-    
+
     def create(name, email)
         user = User.new(@next_id, name, email)
         @users << user
@@ -26,12 +26,12 @@ class UserRepository
     end
 
     def find(id)
-        @users.find { |user| user.id == id}
+        @users.find { |user| user.id == id }
     end
 
     def update(id, name, email)
         user = find(id)
-        return nil unless user
+        return nil uless user
 
         user.name = name
         user.email = email
@@ -89,3 +89,4 @@ puts user1.name #Saída: joao
 
 user_repository.delete(user2.id)
 puts user_repository.all.length # Saída: 1
+
