@@ -76,7 +76,7 @@ class UserRepository
 end
 
 #exemplo de uso
-user_repository = UseRepository.new('users.json')
+user_repository = UserRepository.new('users.json')
 
 user1 = user_repository.create('Joaozinho', 'joaozinho@exemplo.com')
 user2 = user_repository.create('Joao', 'joao@exemplo.com')
@@ -88,4 +88,4 @@ user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
 puts user1.name #Saída: joao
 
 user_repository.delete(user2.id)
-puts user_repository.all.lenth # Saída: 1
+puts user_repository.all.length # Saída: 1
