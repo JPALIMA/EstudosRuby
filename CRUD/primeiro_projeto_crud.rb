@@ -1,8 +1,8 @@
 class ApplicationController
 end
 
-class PostsController < ApplicationController
-    def idex
+class PostController < ApplicationController
+    def index
         @posts = Post.all
     end
 
@@ -29,25 +29,25 @@ class PostsController < ApplicationController
     end
 
     def update
-        @post = Post.find(params[:id])
-
-        if @post.update(post_params)
-            redirect_to @post
-        else
-            render 'edit'
-        end
+        @post.update(post_params[:id])
+        
+    if @post.update(post_params)    
+        redirect_to @post
+    else
+        render 'edit'
     end
+end
 
-    def destroy
-        @post = Post.find(params[:id])
-        @post.destroy
+def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
 
-        redirect_to posts_path
-    end
+    redirect_to post_path
+end
 
-    private
+private
 
-    def post_params
-        params.require(:post).permit(:title, :text)
-    end
+def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
