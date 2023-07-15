@@ -43,7 +43,7 @@ class UserRepository
         user = find(id)
         return nil unless user
 
-        @user.delete(user)
+        @users.delete(user)
         save_users
         user
     end
@@ -70,7 +70,7 @@ class UserRepository
     end
 
     def save_users
-        data = @users_map { |user| {id: user.id, name: user.name, email: user.email}}
+        data = @users.map { |user| {id: user.id, name: user.name, email: user.email }}
         File.write(@file_path, JSON.generate(data))
     end
 end
