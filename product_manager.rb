@@ -1,4 +1,4 @@
-# product.rb
+#product.rb
 class Product
   attr_accessor :id, :name, :description, :price, :quantity
 
@@ -32,7 +32,7 @@ class ProductManager
     @products << product
     product
   end
-  
+
   def list_products
     @products
   end
@@ -40,7 +40,7 @@ class ProductManager
   def find_product(product_id)
     @products.find { |product| product.id == product_id }
   end
-
+  
   def update_product(product_id, name, description, price, quantity)
     product = find_product(product_id)
     return unless product
@@ -52,34 +52,33 @@ class ProductManager
     product
   end
 
-  def delete_product(product_id)
-    product = find_product(product_id)
-    return unless product
+    def delete_product(product_id)
+      product = find_product(product_id)
+      return unless product
 
-    @products.delete(product)
-    product
+      @products.delete(product)
+      product
+    end
   end
-end
 
-#main.rb
-require_relative 'product_manager'
+  #main.rb
+  require_relative 'product_manager'
 
-product_manager = ProductManager.new
+  product_manager = ProductManager.new
 
-#Adcionar produtos
-product_manager.add_product('Produto 1', 'Descrição do produto 1', 10.99, 100)
-product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
+  #Adicionar produtos
+  product_manager.add_product('Produto 1', 'Descrição do Produto 1', 10.99, 100)
+  product_manager.add_product('Produto 2', 'Descrição do Produto 2', 19.99, 50)
 
-#Listar produtos
-products = product_manager.list_products
-products.each do |product|
-  puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description},
-  quantidade: #{product.quantity}"
-end
+  #Listar produtos
+  products = product_manager.list_products
+  products.each do |product|
+    puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}, Quantidade: #{product.quantity}"
+  end
 
-#Atualizar produto
-product_id = products.first.id
-product_manager.update_product(product_id, 'Novo Nome', 'Nova Descrição', 15.99, 75)
+  #Atualizar produto
+  product_id = products.first.id
+  product_manager.update_product(product_id, 'Novo Nome', 'Nova Descrição', 15.99, 75)
 
-#Excluir produto
-deleted_product = product_manager.delete_product(product_id)
+  #Excluir produto
+  deleted_product = product_manager.delete_product(product_id)
