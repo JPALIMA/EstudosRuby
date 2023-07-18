@@ -82,3 +82,5 @@ class ProductManager
 
   #Excluir produto
   deleted_product = product_manager.delete_product(product_id)
+
+  
