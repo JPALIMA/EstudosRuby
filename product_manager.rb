@@ -2,7 +2,7 @@
 class Product
   attr_accessor :id, :name, :description, :price, :quantity
 
-  def initialize(name, decription, price, quantity)
+  def initialize(name, description, price, quantity)
     @id = generate_id
     @name = name
     @description = description
@@ -13,7 +13,7 @@ class Product
   private
 
   def generate_id
-    SecureRandom.uuind
+    SecureRandom.uuid
   end
 end
 
@@ -27,8 +27,8 @@ class ProductManager
     @products = []
   end
 
-  def add_product(name, decription, price, quantity)
-    product = Product.new(name, decription, price, quantity)
+  def add_product(name, description, price, quantity)
+    product = Product.new(name, description, price, quantity)
     @products << product
     product
   end
@@ -41,12 +41,12 @@ class ProductManager
     @products.find { |product| product.id == product_id }
   end
 
-  def update_product(product_id, name, decription, price, quantity)
+  def update_product(product_id, name, description, price, quantity)
     product = find_product(product_id)
     return unless product
 
     product.name = name
-    product.decription = description
+    product.description = description
     product.price = price
     product.quantity = quantity
     product
@@ -67,3 +67,19 @@ require_relative 'product_manager'
 product_manager = ProductManager.new
 
 #Adcionar produtos
+product_manager.add_product('Produto 1', 'Descrição do produto 1', 10.99, 100)
+product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
+
+#Listar produtos
+products = product_manager.list_products
+products.each do |product|
+  puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description},
+  quantidade: #{product.quantity}"
+end
+
+#Atualizar produto
+product_id = products.first.id
+product_manager.update_product(product_id, 'Novo Nome', 'Nova Descrição', 15.99, 75)
+
+#Excluir produto
+deleted_product = product_manager.delete_product(product_id)
