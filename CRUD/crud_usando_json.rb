@@ -19,3 +19,17 @@ class UserRepository
 
     def create(name, email)
         user = User.new(@next_id, name, email)
+        @users << user
+        @next_id += 1
+        save_users
+        user
+    end
+
+    def find(id)
+        @users.find { |user| user.id == id}
+    end
+
+    def update(id, name, email)
+        user = find(id)
+        return nil unless user
+        
