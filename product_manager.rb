@@ -34,9 +34,13 @@ class ProductManager
   end
 
   def list_products
-    @products.find { |product| product.id == product_id }
+    @products
   end
 
+  def find_product(product_id)
+    @products.find { |product| product.id == product_id }
+  end
+  
   def update_product(product_id, name, description, price, quantity)
     product = find_product(product_id)
     return unless product
@@ -70,7 +74,7 @@ product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
 products = product_manager.list_products
 products.each do |product|
   puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price},
-  quantidade: #{product.quatity}"
+  quantidade: #{product.quantity}"
 end
 
 #Atualizar produto
