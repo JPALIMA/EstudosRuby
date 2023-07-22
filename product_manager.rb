@@ -74,7 +74,7 @@ product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
 products = product_manager.list_products
 products.each do |product|
   puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}
-  quantidade: #{product.quanity}"
+  quantidade: #{product.quantity}"
 end
 
 #atualizar produto
