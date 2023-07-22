@@ -26,7 +26,11 @@ class UserRepository
     end
 
     def find(id)
-        @users.find(id)
+        @users.find { |user| user.id == id}
+    end
+
+    def update(id, name, email)
+        user = find(id)
         return nil unless user
 
         user.name = name
@@ -59,7 +63,7 @@ class UserRepository
     end
 
     def calculate_next_id
-        return 1 id @users.empty?
+        return 1 if @users.empty?
 
         max_id = @users.map(&:id).compact.max
         max_id ? max_id + 1 : 1
