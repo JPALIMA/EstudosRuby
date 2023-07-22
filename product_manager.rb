@@ -1,5 +1,5 @@
-#product.rb
-class Product
+#produto.rb
+class Product 
   attr_accessor :id, :name, :description, :price, :quantity
 
   def initialize(name, description, price, quantity)
@@ -9,7 +9,7 @@ class Product
     @price = price
     @quantity = quantity
   end
-  
+
   private
 
   def generate_id
@@ -66,7 +66,7 @@ require_relative 'product_manager'
 
 product_manager = ProductManager.new
 
-#Adicionar produtos
+#adicionar produtos
 product_manager.add_product('produto 1', 'Descrição do Produto 1', 10.99, 100)
 product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
 
@@ -74,12 +74,12 @@ product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
 products = product_manager.list_products
 products.each do |product|
   puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}
-  quantidade: #{product.quantity}"
+  quantidade: #{product.quanity}"
 end
 
 #atualizar produto
 product_id = products.first.id
-product_manager.update_product(product_id, 'Novo nome', 'Nova Descrição', 15.99, 75)
+product_manager.update_product(product_id, 'Novo name', 'Novo Descrição', 15.99, 75)
 
 #Excluir produto
 deleted_product = product_manager.delete_product(product_id)
