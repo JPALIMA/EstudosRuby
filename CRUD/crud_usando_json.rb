@@ -51,7 +51,7 @@ class UserRepository
     def all
         @users
     end
-    
+
     private
 
     def load_users
@@ -66,11 +66,11 @@ class UserRepository
         return 1 if @users.empty?
 
         max_id = @users.map(&:id).compact.max
-        max_id ? max_id + 1 : 1
+        mex_id ? max_id + 1 : 1
     end
 
     def save_users
-        data = @users.map { |user| {id: user.id, name: user.name, email: user.email}}
+        data = @users.map { |user| {id: user.id, user.name, email: user.email}}
         File.write(@file_path, JSON.generate(data))
     end
 end
@@ -79,13 +79,13 @@ end
 user_repository = UserRepository.new('users.json')
 
 user1 = user_repository.create('Joaozinho', 'joaozinho@exemplo.com')
-user2 = user_repository.create('Joaozinho', 'joao@exemplo.com')
+user2 = user_repository.create('joao', 'joao@exemplo.com')
 
 puts user1.name #Saída: joaozinho
-puts user2.email #Saída: joao@exemplo.com
+puts user2.email #SAÍDA: joao@exemplo.com
 
-user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
+user_repository.update(user1.id, 'joao', joao@exemplo.com)
 puts user1.name #saída: joao
 
 user_repository.delete(user2.id)
-puts user_repository.all.length #Saída: 1
+puts user_repository.all.legth #Saída: 1
