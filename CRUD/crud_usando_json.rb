@@ -88,4 +88,4 @@ user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
 puts user1.name #saída: joao
 
 user_repository.delete(user2.id)
-puts user_repository.all.legth #Saída: 1
+puts user_repository.all.length #Saída: 1
