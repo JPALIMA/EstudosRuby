@@ -1,5 +1,5 @@
 #produto.rb
-class Produto
+class Product
   attr_accessor :id, :name, :description, :price, :quantity
 
   def initialize(name, description, price, quantity)
@@ -18,7 +18,7 @@ class Produto
 end
 
 #product_manager.rb
-require 'securandom'
+require 'securerandom'
 
 class ProductManager
   attr_accessor :products
