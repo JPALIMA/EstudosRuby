@@ -1,4 +1,4 @@
-require 'Json'
+require 'json'
 
 class User
     attr_accessor :id, :name, :email
@@ -32,7 +32,7 @@ class UserRepository
     def update(id, name, email)
         user = find(id)
         return nil unless user
-        
+
         user.name = name
         user.email = email
         save_users
@@ -68,7 +68,7 @@ class UserRepository
         max_id = @users.map(&:id).compact.max
         max_id ? max_id + 1 : 1
     end
-    
+
     def save_users
         data = @users.map { |user| {id: user.id, name: user.name, email: user.email}}
         File.write(@file_path, JSON.generate(data))
