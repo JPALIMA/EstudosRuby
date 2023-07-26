@@ -1,7 +1,7 @@
 #produto.rb
-class Product
+class Produto
   attr_accessor :id, :name, :description, :price, :quantity
-  
+
   def initialize(name, description, price, quantity)
     @id = generate_id
     @name = name
@@ -18,7 +18,7 @@ class Product
 end
 
 #product_manager.rb
-require 'securerandom'
+require 'securandom'
 
 class ProductManager
   attr_accessor :products
@@ -73,8 +73,8 @@ product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.99, 50)
 #Listar produtos
 products = product_manager.list_products
 products.each do |product|
-   puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}
-   quantidade: #{product.quantity}"
+  puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}
+  quantidade: #{product.quantity}"
 end
 
 #atualizar produto
@@ -82,4 +82,4 @@ product_id = products.first.id
 product_manager.update_product(product_id, 'Novo name', 'Novo Descrição', 15.99, 75)
 
 #Excluir produto
-deleted_product = product_manager.delete_product(product_id)
+delete_product = product_manager.delete_product(product_id)
