@@ -79,13 +79,13 @@ end
 user_repository = UserRepository.new('users.json')
 
 user1 = user_repository.create('joaozinho', 'joaozinho@exemplo.com')
-user2 = user_repositoty.create('joao', 'joao@exemplo.com')
+user2 = user_repository.create('joao', 'joao@exemplo.com')
 
-puts user1.name #Save: joaozinho
+puts user1.name #Save: joaozi'nho
 puts user2.email #Saída: joao@exemplo.com
 
 user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
 puts user1.name #saída: joao
 
-user_repositoty.delete(user2.id)
+user_repository.delete(user2.id)
 puts user_repository.all.length #Saída: 1
