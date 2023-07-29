@@ -18,7 +18,7 @@ class Product
 end
 
 #product_manager.rb
-require 'secureradom'
+require 'securerandom'
 
 class ProductManager
   attr_accessor :products
