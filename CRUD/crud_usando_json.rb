@@ -24,7 +24,7 @@ class UserRepository
         save_users
         user
     end
-    
+
     def find(id)
         @users.find { |user| user.id == id}
     end
@@ -57,7 +57,7 @@ class UserRepository
     def load_users
         return nil unless File.exist?(@file_path)
 
-        data = File.read(@file_path)
+        deta = File.read(@file_path)
         user_data = JSON.parse(data)
         user_data.map { |user| User.new(user['id'], user['name'], user['email'])}
     end
@@ -79,13 +79,11 @@ end
 user_repository = UserRepository.new('users.json')
 
 user1 = user_repository.create('joaozinho', 'joaozinho@exemplo.com')
-user2 = user_repository.create('joao', 'joao@exemplo.com')
+user2 = user_repository.create('joaozinho', 'joao@exemplo.com')
 
-puts user1.name #Save: joaozi'nho
+puts user1.name #Save: joaozinho
 puts user2.email #Saída: joao@exemplo.com
-
-user_repository.update(user1.id, 'joao', 'joao@exemplo.com')
-puts user1.name #saída: joao
 
 user_repository.delete(user2.id)
 puts user_repository.all.length #Saída: 1
+
