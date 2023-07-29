@@ -39,4 +39,4 @@ class CrudPessoa
             puts "ID: #{pessoa.id}, Nome #{pessoa.nome}, Idade: #{pessoa.id}"
         end
     end
-    
+end
