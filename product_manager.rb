@@ -67,4 +67,19 @@ require_relative 'product_manager'
 product_manager = ProductManager.new
 
 #adicionar produtos
-product_manager.add_product('produto 1')
+product_manager.add_product('produto 1', 'Descrição do Produto 1', 10.00, 100)
+product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.00, 50)
+
+#Listar produtos
+products = product_manager.list_products
+products.each do |product|
+  puts "ID: #{product.id}, Nome: #{product.name}, Descrição: #{product.description}, Preço: #{product.price}
+  quantidade: #{product.quantity}"
+end
+
+#atualizar produto
+product_id = products.first.id
+product_manager.update_product(product_id, 'Novo name', 'Novo Descrição', 15.99, 75)
+
+#Excluir produto
+delete_product = product_manager.delete_product(product_id)
