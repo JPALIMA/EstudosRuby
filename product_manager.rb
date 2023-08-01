@@ -11,7 +11,7 @@ class Product
   end
 
   private
-
+  
   def generate_id
     SecureRandom.uuid
   end
@@ -67,7 +67,7 @@ require_relative 'product_manager'
 product_manager = ProductManager.new
 
 #adicionar produtos
-product_manager.add_product('produto 1', 'Descrição do Produto 1', 10.00, 100)
+product_manager.add_product('produto 1', 'Descrição do Produto 1', 10.10, 100)
 product_manager.add_product('produto 2', 'Descrição do Produto 2', 19.00, 50)
 
 #Listar produtos
