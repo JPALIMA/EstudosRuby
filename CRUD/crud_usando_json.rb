@@ -55,7 +55,7 @@ class UserRepository
     def load_users
         return nil unless File.exist?(@file_path)
 
-        data = File.read(@file_path)
+        deta = File.read(@file_path)
         user_data = JSON.parse(data)
         user_data.map { |user| User.new(user['id'], user['name'], user['email'])}
     end
