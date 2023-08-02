@@ -41,6 +41,12 @@ class ProdutoGerente
     @produtos.achar { |produto| produto.id produto_id}
   end
 
-  def atualizar_produto(produ)
+  def atualizar_produto(produto_id, nome, descricao, preco, quantidade)
+    produto = achar_produto(produto_id)
+    return unless produto
+
+    produto.nome = nome
+    produto.descricao = descricao
+    
 
 
