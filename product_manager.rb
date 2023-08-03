@@ -1,52 +1,70 @@
 #produto.rb
-class Produto
-  attr_accessor :id, :nome, :descricao, :preco, :quantidade
+class Product
+  attr_accessor :id, :name, :description, :price, :quantity
 
-  def inicializar(nome, descricao, preco, quantidade)
-    @id = gerar_id
-    @nome = nome
-    @descricao = descricao
-    @preco = preco
-    @quantidade = quantidade
+  def initialize(name, description, price, quantity)
+    @id = generate_id
+    @name = name
+    @description = description
+    @price = price
+    @quantity = quantity
   end
 
   private
 
-  def gerar_id
-    SeguroAleatorio.uuid
+  def generate_id
+    SecureRandom.uuid
   end
 end
 
-#gerente_de_produto.rb
-require 'seguroaleatorio'
+#product_manager.rb
+require 'securerandom'
 
-class ProdutoGerente
-  attr_accessor :produtos
+class ProductManager
+  attr_accessor :products
 
-  def inicializar
-    @produtos = []
+  def initialize
+    @products = []
   end
 
-  def incluir_produto(nome, descricao, preco, quantidade)
-    produto = Produto.new(nome, descricao, preco, quantidade)
-    @produtos << produto
-    produto
+  def add_product(name, description, price, quantity)
+    product = Product.new(name, description, price, quantity)
+    @products << product
+    product
   end
 
-  def lista_produtos
-    @produtos
+  def list_products
+    @products
   end
 
-  def achar_produto(produto_id)
-    @produtos.achar { |produto| produto.id produto_id}
+  def find_product(product_id)
+    @products.find { |product| product.id == product_id}
   end
 
-  def atualizar_produto(produto_id, nome, descricao, preco, quantidade)
-    produto = achar_produto(produto_id)
-    return unless produto
+  def update_product(product_id, name, description, price, quantity)
+    product = find_product(product_id)
+    return unless product
 
-    produto.nome = nome
-    produto.descricao = descricao
-    
+    product.name = name
+    product.description = description
+    product.price = price
+    product.quantity = quantity
+    product
+  end
 
+  def delete_product(product_id)
+    product = find_product(product_id)
+    return unless product
 
+    @products.delete(product)
+    product
+  end
+end
+
+#main.rb
+require_relative 'product_manager'
+
+product_manager = ProductManager.new
+
+#adicionar produtos
+product_manager
