@@ -78,7 +78,7 @@ products.each do |product|
 end
 
 #atualizar produto
-product_id = products.fist.id
+product_id = products.first.id
 product_manager.update_product(product_id, 'Novo name', 'Novo Descrição', 15.99, 75)
 
 #Excluir produto
