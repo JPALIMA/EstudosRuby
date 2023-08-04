@@ -17,11 +17,11 @@ class Produto
   end
 end
 
-#gerenciador_de_produtos.rb
-require 'securerandom'
+#gerenaciador_de_produtos
+  require 'securerandom'
 
-class GerenciadorDeProdutos
-  attr_accessor :produtos
+  class GerenciadorDeProdutos
+    attr_accessor :produtos
 
   def initialize
     @produtos = []
@@ -72,16 +72,13 @@ gerenciador_de_produtos.adicionar_produto('Produto 2', 'Descrição do Produto 2
 #Listar produtos
 produtos = gerenciador_de_produtos.listar_produtos
 produtos.each do |produto|
-  puts "ID: #{produto.id}, Nome: #{produto.nome}, Descrição: #{produto.descricao}, preço: #{produto.preco},
+  puts "ID: #{produto.id}, Nome: #{produto.nome}, Descricao: #{produto.descricao}, preço: #{produto.preco},
   Quantidade: #{produto.quantidade}"
 end
 
 #atualizar produto
 id_do_produto = produtos.first.id
-gerenciador_de_produtos.atualizar_produto(id_do_produto, 'Novo nome', 'Nova descrição', 15.99, 75)
+gerenciador_de_produtos.atualizar_produto(id_do_produto, 'Novo nome', 'Nova Descrição', 15.99, 75)
 
 #Excluir produto
 produto_excluido = gerenciador_de_produtos.excluir_produto(id_do_produto)
-
-
-
