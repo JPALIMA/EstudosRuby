@@ -1,11 +1,11 @@
 require 'json'
 
-class Usuario
-    attr_accessor :id, :nome, :email
+class User
+    attr_accessor :id, :name, :email
 
-    def inicializar(id, nome, email)
+    def inicializar(id, name, email)
         @id = id
-        @nome = nome
+        @name = name
         @email = email
     end
 end
@@ -17,8 +17,8 @@ class UserRepository
         @proximo_id = calcular_proximo_id
     end
 
-    def criar(nome, email)
-        usuario = Usuario.new(@proximo_id, nome, email)
+    def criar(name, email)
+        usuario = User.new(@proximo_id, name, email)
         @usuarios << usuario
         @proximo_id += 1
         salvar_usuarios
@@ -27,18 +27,19 @@ class UserRepository
 
     def achar(id)
         @usuarios.achar { |usuario| usuario.id == id}
+    end
 
-    def atualizar(id, nome, email)
+    def atualizar(id, name, email)
         usuario = achar(id)
-        return nill unless usuario
+        return nil unless usuario
 
-        usuario.nome = nome
+        usuario.name = name
         usuario.email = email
         salvar_usuarios
         usuario
     end
 
-    def delete(id)
+    def deletar(id)
         usuario = find(id)
         return nil unless usuario
 
@@ -47,16 +48,16 @@ class UserRepository
         usuario
     end
 
-    def all
-        @usuario
+    def todos
+        @usuarios
     end
 
     def carregar_usuarios
         return nil unless File.exist?(@caminho_de_arquivo)
         
-        data = File.read(@caminho_de_arquivo)
-        usuario_data = JSON.parse(data)
-        usuario_data.map { |usuario| Usuario.new(usuario['id'], usuario['nome'], usuario['email'])} 
+        dados = File.read(@caminho_de_arquivo)
+        usuario_dados = JSON.parse(dados)
+        usuario_dados.map { |usuario| User.new(usuario['id'], usuario['name'], usuario['email']) } 
     end
 
     def calcular_proximo_id
@@ -67,19 +68,19 @@ class UserRepository
     end
 
     def salvar_usuarios
-        data = @usuarios.mapa { |usuario| {id: usuario.id, nome: usuario.nome, email: usuario.email}}
-        File.write(@caminho_de_usuario, JSON.gererate(data))
+        dados = @usuarios.map { |usuario| {id: usuario.id, name: usuario.name, email: usuario.email}}
+        File.write(@caminho_de_usuario, JSON.gererate(dados))
     end
 end
 
 #exemplo de uso
 repositorio_do_usuario = UserRepository.new('users.json')
 
-repositorio_do_usuario = UserRepository.criar('joaozinho', 'joaozinho@exemplo.com')
-repositorio_do_usuario = UserRepository.criar('joao', 'joao@exemplo.com')
+usuario1 = repositorio_do_usuario.criar('joaozinho', 'joaozinho@exemplo.com')
+usuario2 = repositorio_do_usuario.criar('joao', 'joao@exemplo.com')
 
-puts usuario1.nome #Salvar: joaozinho
+puts usuario1.name #Salvar: joaozinho
 puts usuario2.email #Saida: joao@exemplo.com
 
 repositorio_do_usuario.deletar(usuario2.id)
-puts repositorio_do_usuario.all.length #Saída: 1
+puts repositorio_do_usuario.todos.length #Saída: 1
