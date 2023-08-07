@@ -3,7 +3,7 @@ require 'json'
 class User
     attr_accessor :id, :name, :email
 
-    def inicializar(id, name, email)
+    def initialize(id, name, email)
         @id = id
         @name = name
         @email = email
@@ -39,7 +39,7 @@ class UserRepository
         usuario
     end
 
-    def deletar(id)
+    def excluir(id)
         usuario = encontrar(id)
         return nil unless usuario
 
@@ -63,8 +63,8 @@ class UserRepository
     def calcular_proximo_id
         return 1 if @usuarios.empty?
 
-        maximo_id = @usuarios.mapa(&:id).compact.max
-        maximo_id ? maximo_id + 1 : 1
+        maior_id = @usuarios.map(&:id).compact.max
+        maior_id ? maior_id + 1 : 1
     end
 
     def salvar_usuarios
@@ -74,13 +74,13 @@ class UserRepository
 end
 
 #exemplo de uso
-repositorio_do_usuario = UserRepository.new('users.json')
+repositorio_usuario = UserRepository.new('usuarios.json')
 
-usuario1 = repositorio_do_usuario.criar('joaozianho', 'joaozinho@exemplo.com')
-usuario2 = repositorio_do_usuario.criar('joao', 'joao@exemplo.com')
+usuario1 = repositorio_usuario.criar('joaozianho', 'joaozinho@exemplo.com')
+usuario2 = repositorio_usuario.criar('joao', 'joao@exemplo.com')
 
 puts usuario1.name #Salvar: joaozinho
 puts usuario2.email #Saida: joao@exemplo.com
 
-repositorio_do_usuario.deletar(usuario2.id)
-puts repositorio_do_usuario.todos.length #Saída: 1
+repositorio_usuario.excluir(usuario2.id)
+puts repositorio_usuario.todos.length #Saída: 1
