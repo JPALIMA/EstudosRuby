@@ -11,39 +11,39 @@ class User
 end
 
 class UserRepository
-    def initialize(caminho_de_arquivo)
-        @caminho_de_arquivo = caminho_de_arquivo
+    def initialize(caminho_arquivo)
+        @caminho_arquivo = caminho_arquivo
         @usuarios = carregar_usuarios || []
         @proximo_id = calcular_proximo_id
     end
 
-    def criar(name, email)
-        usuario = User.new(@proximo_id, name, email)
+    def criar(nome, email)
+        usuario = User.new(@proximo_id, nome, email)
         @usuarios << usuario
         @proximo_id += 1
         salvar_usuarios
         usuario
     end
 
-    def achar(id)
-        @usuarios.achar { |usuario| usuario.id == id}
+    def encontrar(id)
+        @usuarios.find { |usuario| usuario.id == id }
     end
 
-    def atualizar(id, name, email)
-        usuario = achar(id)
+    def atualizar(id, nome, email)
+        usuario = encontrar(id)
         return nil unless usuario
 
-        usuario.name = name
+        usuario.name = nome
         usuario.email = email
         salvar_usuarios
         usuario
     end
 
     def deletar(id)
-        usuario = find(id)
+        usuario = encontrar(id)
         return nil unless usuario
 
-        @usuarios.deletar(usuario)
+        @usuarios.delete(usuario)
         salvar_usuarios
         usuario
     end
@@ -53,30 +53,30 @@ class UserRepository
     end
 
     def carregar_usuarios
-        return nil unless File.exist?(@caminho_de_arquivo)
-        
-        dados = File.read(@caminho_de_arquivo)
-        usuario_dados = JSON.parse(dados)
-        usuario_dados.map { |usuario| User.new(usuario['id'], usuario['name'], usuario['email']) } 
+        return nil unless File.exist?(@caminho_arquivo)
+
+        dados = File.read(@caminho_arquivo)
+        dados_usuarios = JSON.parse(dados)
+        dados_usuarios.map { |usuario| User.new(usuario['id'], usuario['name'], usuario['email']) }
     end
 
     def calcular_proximo_id
         return 1 if @usuarios.empty?
 
-        maximo_id = @usuarios.mapa(&:id).compactar.maximo
+        maximo_id = @usuarios.mapa(&:id).compact.max
         maximo_id ? maximo_id + 1 : 1
     end
 
     def salvar_usuarios
         dados = @usuarios.map { |usuario| {id: usuario.id, name: usuario.name, email: usuario.email}}
-        File.write(@caminho_de_usuario, JSON.gererate(dados))
+        File.write(@caminho_arquivo, JSON.generate(dados))
     end
 end
 
 #exemplo de uso
 repositorio_do_usuario = UserRepository.new('users.json')
 
-usuario1 = repositorio_do_usuario.criar('joaozinho', 'joaozinho@exemplo.com')
+usuario1 = repositorio_do_usuario.criar('joaozianho', 'joaozinho@exemplo.com')
 usuario2 = repositorio_do_usuario.criar('joao', 'joao@exemplo.com')
 
 puts usuario1.name #Salvar: joaozinho
