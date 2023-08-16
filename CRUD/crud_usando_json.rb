@@ -57,7 +57,7 @@ class UserRepository
 
         dados = File.read(@caminho_arquivo)
         dados_usuarios = JSON.parse(dados)
-        dados_usuarios.map { |usuario| User.new(usuario['id']), usuario['name'], usuario['email']}
+        dados_usuarios.map { |usuario| User.new(usuario['id'], usuario['name'], usuario['email']) }
     end
 
     def calcular_proximo_id
@@ -67,4 +67,20 @@ class UserRepository
         maior_id ? maior_id + 1 : 1
     end
 
-    
+    def salvar_usuarios
+        dados = @usuarios.map { |usuario| {id: usuario.id, name: usuario.name, email: usuario.email}}
+        File.write(@caminho_arquivo, JSON.generate(dados))
+    end
+end
+
+#exemplo de uso
+repositorio_usuario = UserRepository.new('usuarios.json')
+
+usuario1 = repositorio_usuario.criar('joaozianho', 'joaozinho@exemplo.com')
+usuario2 = repositorio_usuario.criar('joao', 'joao@exemplo.com')
+
+puts usuario1.name #Salvar: joaozinho
+puts usuario2.email #Saida: joao@exemplo.com
+
+repositorio_usuario.excluir(usuario2.id)
+puts repositorio_usuario.todos.length #Saída: 1
