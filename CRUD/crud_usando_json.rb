@@ -25,6 +25,14 @@ class UserRepository
         usuario
     end
 
+    def criar(nome, email)
+        usuario = Usuario.new(@proximo_id, nome, email)
+        @usuarios << usuario
+        @proximo_id += 1
+        salvar_usuarios
+        usuario
+    end
+
     def encontrar(id)
         @usuarios.find { |usuario| usuario.id == id }
     end
@@ -57,7 +65,7 @@ class UserRepository
 
         dados = File.read(@caminho_arquivo)
         dados_usuarios = JSON.parse(dados)
-        dados_usuarios.map { |usuario| Usuario.new(usuario['id'], usuario['name'], usuario['email']) }
+        dados_usuarios.map { |usuario| Usuario.new(usuario['id'], usuario['name'], usuario['email'])}
     end
 
     def calcular_proximo_id
@@ -68,7 +76,7 @@ class UserRepository
     end
 
     def salvar_usuarios
-        dados = @usuarios.map { |usuario| {id: usuario.id, name: usuario.name, email: usuario.email}}
+        dados = @usuarios.map { |usuario| {id:usuario.id, name: usuario.name, email: usuario.email}}
         File.write(@caminho_arquivo, JSON.generate(dados))
     end
 end
@@ -76,11 +84,11 @@ end
 #exemplo de uso
 repositorio_usuario = UserRepository.new('usuarios.json')
 
-usuario1 = repositorio_usuario.criar('joaozianho', 'joaozinho@exemplo.com')
+usuario1 = repositorio_usuario.criar('joaozinho', 'joaozinho@exemplo.com')
 usuario2 = repositorio_usuario.criar('joao', 'joao@exemplo.com')
 
 puts usuario1.name #Salvar: joaozinho
-puts usuario2.email #Saida: joao@exemplo.com
+puts usuario2.email #saida: joao@exemplo.com
 
 repositorio_usuario.excluir(usuario2.id)
 puts repositorio_usuario.todos.length #Saída: 1
