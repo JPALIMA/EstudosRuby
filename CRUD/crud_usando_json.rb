@@ -1,6 +1,6 @@
 require 'json'
 
-class User
+class Usuario
     attr_accessor :id, :name, :email
 
     def initialize(id, name, email)
@@ -18,7 +18,7 @@ class UserRepository
     end
 
     def criar(nome, email)
-        usuario = User.new(@proximo_id, nome, email)
+        usuario = Usuario.new(@proximo_id, nome, email)
         @usuarios << usuario
         @proximo_id += 1
         salvar_usuarios
@@ -57,7 +57,7 @@ class UserRepository
 
         dados = File.read(@caminho_arquivo)
         dados_usuarios = JSON.parse(dados)
-        dados_usuarios.map { |usuario| User.new(usuario['id'], usuario['name'], usuario['email']) }
+        dados_usuarios.map { |usuario| Usuario.new(usuario['id'], usuario['name'], usuario['email']) }
     end
 
     def calcular_proximo_id
