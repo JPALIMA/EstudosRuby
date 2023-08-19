@@ -4,7 +4,7 @@ tentativas = 0
 puts "Bem vindo ao jogo de adivinhação!"
 puts "Tente adivinhar um número entre 1 e 100"
 
-loop do
+loop do 
     tentativas += 1
     palpite = gets.chomp.to_i
 
